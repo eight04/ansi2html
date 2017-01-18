@@ -1,0 +1,12 @@
+{
+	"env": {
+		"es6": true
+	},
+	"rules": {
+		"no-use-before-define": "error",
+		"semi": ["error", "always"]
+	},
+	"extends": [
+		"eslint:recommended"
+	]
+}
