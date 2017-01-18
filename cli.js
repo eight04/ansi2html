@@ -22,4 +22,4 @@ Options:
   -h --help       Show this.
   --version       Show version.`, {version: "0.0.0"});
 
-require("./index").init(args);
+require("./index").init({args});
