@@ -1,5 +1,5 @@
 {
-  "name": "ansi2html",
+  "name": "bbs-reader-cli",
   "version": "0.1.0",
   "description": "Convert ANSI file into HTML",
   "author": "eight04 <eight04@gmail.com>",
@@ -8,9 +8,11 @@
     "test": "eslint **/*.js && mocha",
     "preversion": "npm test",
     "version": "sync-version cli.js && git add .",
-    "postversion": "git push --follow-tags && npm public"
+    "postversion": "git push --follow-tags && npm publish"
   },
-  "bin": "cli.js",
+  "bin": {
+    "bbs2html": "cli.js"
+  },
   "main": "index.js",
   "dependencies": {
     "bbs-reader": "^0.3.0",

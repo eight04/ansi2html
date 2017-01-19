@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 
 var neodoc = require("neodoc"),
-	args = neodoc.run(`ansi2html
+	args = neodoc.run(`bbs2html
 
 Usage:
-  ansi2html [options] <files>...
+  bbs2html [options] <files>...
 
 Options:
   -o --out DIR    Output directory. [default: .]

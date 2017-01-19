@@ -1,21 +1,21 @@
-ansi2html
-=========
+bbs-reader-cli
+==============
 
 A CLI tool to convert ANSI files into HTML.
 
 Installation
 ------------
 ```
-npm install -g ansi2html
+npm install -g bbs-reader-cli
 ```
 
 Usage
 -----
 ```
-ansi2html
+bbs2html
 
 Usage:
-  ansi2html [options] <files>...
+  bbs2html [options] <files>...
 
 Options:
   -o --out DIR    Output directory. [default: .]
@@ -46,7 +46,7 @@ With following file tree,
 ```
 Convert .ans to .html:
 ```
-ansi2html **/*.ans
+bbs2html **/*.ans
 ```
 Result:
 ```
@@ -63,7 +63,7 @@ Result:
 ```
 Put result in different directory:
 ```
-ansi2html -o result **/*.ans
+bbs2html -o result **/*.ans
 ```
 Result:
 ```
@@ -82,7 +82,7 @@ Result:
 ```
 Absolute mode:
 ```
-ansi2html -o result/html --css-path ../css/style.css --absolute **/*.ans
+bbs2html -o result/html --css-path ../css/style.css --absolute **/*.ans
 ```
 Result:
 ```
