@@ -11,21 +11,15 @@ function createLogger() {
 	};
 }
 
-function createIO({logger = createLogger()} = {}) {
+function createIO() {
 	var writeMem = new Set,
 		fs = require("fs-extra"),
 		dry;
 	return {
 		write(file, content) {
-			if (writeMem.has(file)) return;
+			if (writeMem.has(file) || dry) return;
 			writeMem.add(file);
-			if (dry) {
-				logger.log(file);
-			} else {
-				fs.outputFileSync(file, content, "utf8");
-				logger.clear();
-				logger.log(file, "");
-			}
+			fs.outputFileSync(file, content, "utf8");
 		},
 		dry(f = true) {
 			dry = f;
@@ -129,6 +123,14 @@ function init({
 		var result = bbsReader(content),
 			{dest, css, cssDest, base} = fc.output(file);
 		
+		if (dry) {
+			logger.log(`${file} -> ${dest}`, "");
+			logger.log(inline ? "" : ` + ${cssDest}`);
+		} else {
+			logger.clear();
+			logger.log(file, "");
+		}
+			
 		var html = `<!DOCTYPE html>
 <html>
 	<head>
@@ -145,8 +147,8 @@ function init({
 		}
 	}
 	
-	if (count && !dry) logger.log();
-	logger.log(`\nConverted ${count} files.`);
+	if (count) logger.log("\n");
+	logger.log(`Converted ${count} files.`);
 }
 
 module.exports = {

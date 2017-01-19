@@ -7,20 +7,19 @@ Usage:
   bbs2html [options] <files>...
 
 Options:
-  -o --out DIR    Output directory. [default: .]
-  -s --src DIR    Source directory. [default: .]
-  --inline-css    Make stylesheet inline in HTML file.
+  -o --out DIR       Output directory. [default: .]
+  -s --src DIR       Source directory. [default: .]
+  -i --inline-css    Make stylesheet inline in HTML file.
 
-  --css-path FILE Stylesheet's save path, relative to HTML file or outdir.
-                  [default: style.css]
+  -c --css-path FILE Stylesheet's save path, relative to HTML file or outdir.
+                     [default: style.css]
 
-  --absolute      Without this option, each HTML inside same directory will use
-                  the same css file. Otherwise, only one css file relative to
-                  outdir is generated.
+  -a --absolute      Without this option, each HTML inside same directory will
+                     use the same css file. Otherwise, only one css file relative to outdir is generated.
 
-  -n --dry-run    Print the file name instead of writing.
-  -h --help       Show this.
-  -v --version    Show version.`, {
+  -n --dry-run       Print the file name instead of writing.
+  -h --help          Show this.
+  -v --version       Show version.`, {
 		laxPlacement: true
 	});
 
