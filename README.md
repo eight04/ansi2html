@@ -3,6 +3,12 @@ ansi2html
 
 A CLI tool to convert ANSI files into HTML.
 
+Installation
+------------
+```
+npm install -g ansi2html
+```
+
 Usage
 -----
 ```
@@ -97,6 +103,6 @@ Result:
 Changelog
 ---------
 
-* Next
+* 0.1.0 (Jan 19, 2017)
 
     - First release.
