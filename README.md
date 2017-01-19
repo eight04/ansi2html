@@ -103,6 +103,10 @@ Result:
 Changelog
 ---------
 
+* 0.1.1 (Jan 19, 2017)
+
+	- Rename ansi2html -> bbs-reader-cli.
+
 * 0.1.0 (Jan 19, 2017)
 
     - First release.
