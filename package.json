@@ -8,7 +8,7 @@
     "test": "eslint **/*.js && mocha",
     "preversion": "npm test",
     "version": "sync-version cli.js && git add .",
-    "postversion": "git push --follow-tags"
+    "postversion": "git push --follow-tags && npm public"
   },
   "bin": "cli.js",
   "main": "index.js",
