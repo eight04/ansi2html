@@ -104,7 +104,7 @@ function init({
 		var result = bbsReader(content),
 			{dest, css, cssDest, base} = fc.output(file);
 		
-		var html = `<!doctype>
+		var html = `<!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="utf-8">
