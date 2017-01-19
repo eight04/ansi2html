@@ -103,6 +103,11 @@ Result:
 Changelog
 ---------
 
+* 0.1.2 (Jan 19, 2017)
+
+	- Fix infinite loop bug.
+	- Improve the logger.
+
 * 0.1.1 (Jan 19, 2017)
 
 	- Rename ansi2html -> bbs-reader-cli.
