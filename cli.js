@@ -20,6 +20,6 @@ Options:
 
   --dry-run       Print the file name instead of writing.
   -h --help       Show this.
-  --version       Show version.`, {version: "0.1.0"});
+  --version       Show version.`, {version: "0.1.1"});
 
 require("./index").init({args});
