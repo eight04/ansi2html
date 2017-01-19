@@ -16,7 +16,7 @@ Options:
 
   --absolute      Without this option, each HTML inside same directory will use
                   the same css file. Otherwise, only one css file relative to
-				  outdir is generated.
+                  outdir is generated.
 
   --dry-run       Print the file name instead of writing.
   -h --help       Show this.
