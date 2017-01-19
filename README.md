@@ -28,6 +28,72 @@ Options:
   --version       Show version.
 ```
 
+Example
+-------
+With following file tree,
+```
+.
+|-- a.ans
+|-- b.ans
+`-- c
+   `-- c.ans
+```
+Convert .ans to .html:
+```
+ansi2html **/*.ans
+```
+Result:
+```
+.
+|-- a.ans
+|-- a.html
+|-- b.ans
+|-- b.html
+|-- c
+|  |-- c.ans
+|  |-- c.html
+|  `-- style.css
+`-- style.css
+```
+Put result in different directory:
+```
+ansi2html -o result **/*.ans
+```
+Result:
+```
+.
+|-- a.ans
+|-- b.ans
+|-- c
+|  `-- c.ans
+`-- result
+   |-- a.html
+   |-- b.html
+   |-- c
+   |  |-- c.html
+   |  `-- style.css
+   `-- style.css
+```
+Absolute mode:
+```
+ansi2html -o result/html --css-path ../css/style.css --absolute **/*.ans
+```
+Result:
+```
+|-- a.ans
+|-- b.ans
+|-- c
+|  `-- c.ans
+`-- result
+   |-- css
+   |  `-- style.css
+   `-- html
+      |-- a.html
+      |-- b.html
+      `-- c
+         `-- c.html
+```
+
 Changelog
 ---------
 
