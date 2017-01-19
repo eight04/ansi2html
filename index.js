@@ -1,4 +1,17 @@
-function createIO() {
+function createLogger() {
+	var readline = require("readline");
+	return {
+		log(data = "", end = "\n") {
+			process.stdout.write(data + end);
+		},
+		clear() {
+			readline.clearLine(process.stdout, -1);
+			readline.cursorTo(process.stdout, 0, null);
+		}
+	};
+}
+
+function createIO({logger = createLogger()} = {}) {
 	var writeMem = new Set,
 		fs = require("fs-extra"),
 		dry;
@@ -7,10 +20,12 @@ function createIO() {
 			if (writeMem.has(file)) return;
 			writeMem.add(file);
 			if (dry) {
-				process.stdout.write(file + "\n");
-				return;
+				logger.log(file);
+			} else {
+				fs.outputFileSync(file, content, "utf8");
+				logger.clear();
+				logger.log(file, "");
 			}
-			fs.outputFileSync(file, content, "utf8");
 		},
 		dry(f = true) {
 			dry = f;
@@ -75,7 +90,8 @@ function init({
 		"--dry-run": dry,
 		"<files>": files,
 	},
-	io = createIO(),
+	logger = createLogger(),
+	io = createIO({logger}),
 	getCss = createCssGetter(),
 	getInlineCss = createInlineCssGetter({getCss}),
 	fc = fileCenter({src, out, cssPath, absolute}),
@@ -83,7 +99,11 @@ function init({
 	var fs = require("fs"),
 		uao = require("uao-js"),
 		glob = require("glob"),
-		bbsReader = require("bbs-reader");
+		bbsReader = require("bbs-reader"),
+		
+		count = 0;
+		
+	logger.log("bbs2html started\n");
 		
 	files = files.map(fc.input);
 	
@@ -97,9 +117,14 @@ function init({
 		try {
 			content = fs.readFileSync(file, "latin1");
 		} catch (err) {
+			if (err.code != "ENOENT") {
+				throw err;
+			}
 			files.push(...glob.sync(file));
 			continue;
 		}
+		
+		count++;
 		
 		var result = bbsReader(content),
 			{dest, css, cssDest, base} = fc.output(file);
@@ -119,6 +144,9 @@ function init({
 			io.write(cssDest, getCss());
 		}
 	}
+	
+	if (count && !dry) logger.log();
+	logger.log(`\nConverted ${count} files.`);
 }
 
 module.exports = {

@@ -18,8 +18,10 @@ Options:
                   the same css file. Otherwise, only one css file relative to
                   outdir is generated.
 
-  --dry-run       Print the file name instead of writing.
+  -n --dry-run    Print the file name instead of writing.
   -h --help       Show this.
-  --version       Show version.`, {version: "0.1.1"});
+  -v --version    Show version.`, {
+		laxPlacement: true
+	});
 
 require("./index").init({args});
