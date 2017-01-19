@@ -7,7 +7,7 @@
   "scripts": {
     "test": "eslint **/*.js && mocha",
     "preversion": "npm test",
-    "version": "sync-version cli.js && git add .",
+    "version": "git add .",
     "postversion": "git push --follow-tags && npm publish"
   },
   "bin": {
