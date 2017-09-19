@@ -103,6 +103,10 @@ Result:
 Changelog
 ---------
 
+* 0.1.3 (Sep 19, 2017)
+
+	- Fix crlf issue.
+
 * 0.1.2 (Jan 19, 2017)
 
 	- Fix infinite loop bug.
