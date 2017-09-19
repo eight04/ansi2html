@@ -8,7 +8,8 @@
     "test": "eslint **/*.js && mocha",
     "preversion": "npm test",
     "version": "git add .",
-    "postversion": "git push --follow-tags && npm publish"
+    "postversion": "git push --follow-tags && npm publish",
+    "prepack": "crlf --set=LF cli.js"
   },
   "bin": {
     "bbs2html": "cli.js"
@@ -25,6 +26,7 @@
   },
   "devDependencies": {
     "chai": "^3.5.0",
+    "crlf": "^1.1.1",
     "mocha": "^3.2.0",
     "proxyquire": "^1.7.10",
     "sinon": "^1.17.7"
