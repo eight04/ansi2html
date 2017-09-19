@@ -1,6 +1,6 @@
 {
   "name": "bbs-reader-cli",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Convert ANSI file into HTML",
   "author": "eight04 <eight04@gmail.com>",
   "license": "MIT",
